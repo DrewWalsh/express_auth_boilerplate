@@ -1,0 +1,17 @@
+{
+	"presets": ["@babel/preset-env"],
+	"plugins": [
+		"@babel/transform-runtime",
+		"@babel/syntax-dynamic-import",
+		"transform-require-default",
+		[
+			"module-resolver",
+			{
+				"root": ["./src/"],
+				"alias": {
+					"models": "./src/database/models"
+				}
+			}
+		]
+	]
+}
