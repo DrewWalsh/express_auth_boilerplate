@@ -11,7 +11,6 @@ module.exports = {
 					username: req.user.username,
 					isVerified: req.user.isVerified,
 					isDeleted: req.user.isDeleted,
-					userAgent: req.user.userAgent,
 				},
 			});
 		} catch (e) {

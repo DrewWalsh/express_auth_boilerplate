@@ -1,13 +1,19 @@
 import bcrypt from "bcrypt";
 
+const SALT_ROUNDS = 10;
+
 const hashPassword = async (user) => {
 	if (!user.changed("password")) {
 		return;
-	} else {
-		const hashedPassword = await bcrypt.hash(user.password, 10);
+	}
+
+	try {
+		const hashedPassword = await bcrypt.hash(user.password, SALT_ROUNDS);
 		user.set("password", hashedPassword);
-		return;
+	} catch (error) {
+		console.error("Error hashing password:", error);
+		throw new Error("Failed to hash password");
 	}
 };
 
-module.exports = hashPassword;
+export default hashPassword;

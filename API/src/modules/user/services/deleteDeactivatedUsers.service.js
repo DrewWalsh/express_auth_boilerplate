@@ -3,8 +3,6 @@ import { User } from "helpers/getModels";
 import { Op } from "sequelize";
 import { errorLogger } from "logger";
 import moment from "moment";
-import fs from "fs";
-
 
 function deleteDeactivatedUsers() {
 	try {

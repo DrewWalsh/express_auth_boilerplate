@@ -45,22 +45,6 @@ const User = db.define(
 			type: Sequelize.BOOLEAN,
 			defaultValue: false,
 		},
-		gamesPlayed: {
-			type: Sequelize.INTEGER,
-			defaultValue: 0,
-		},
-		gamesWon: {
-			type: Sequelize.INTEGER,
-			defaultValue: 0,
-		},
-		totalScore: {
-			type: Sequelize.INTEGER,
-			defaultValue: 0,
-		},
-		highestScore: {
-			type: Sequelize.INTEGER,
-			defaultValue: 0,
-		},
 	},
 	{
 		indexes: [
@@ -111,4 +95,4 @@ User.authenticateLogin = async function (email, password) {
 		return e;
 	}
 };
-module.exports = User;
+export default User;

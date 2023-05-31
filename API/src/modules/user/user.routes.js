@@ -13,8 +13,6 @@ import ChangeUsernamePolicy from "modules/user/policies/changeUsername.policy";
 import ResetPasswordController from "modules/user/controllers/resetPassword.controller";
 import DeactivateAccountController from "modules/user/controllers/deactivateAccount.controller";
 import ReactivateAccountController from "modules/user/controllers/reactivateAccount.controller";
-import UpdateUserAgentPolicy from "modules/user/policies/updateUserAgent.policy";
-import UpdateUserAgentController from "modules/user/controllers/updateUserAgent.controller";
 
 const router = Router();
 router.get("/user", isAuthenticated, FetchUserController.fetchUser);
@@ -59,12 +57,6 @@ router.post(
 	"/user/deactivate-account/:token",
 	VerifyTokenPolicy.verifyToken,
 	DeactivateAccountController.deactivateAccount
-);
-router.post(
-	"/user/update-agent",
-	isAuthenticated,
-	UpdateUserAgentPolicy.updateUserAgent,
-	UpdateUserAgentController.updateUserAgent
 );
 
 module.exports = router;
